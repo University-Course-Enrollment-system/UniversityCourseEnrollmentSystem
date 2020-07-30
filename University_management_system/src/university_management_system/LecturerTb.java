@@ -77,6 +77,33 @@ public class LecturerTb {
         }
     }
 
+// make the fillallocationtable
+     public void fillLecAllocateTable(JTable table,String Val){
+        try {
+            ps = con.prepareStatement("SELECT `subid`, `subname`,`location` FROM `subjects` WHERE `lecid` = ?");
+            ps.setString(1,Val);
+  
+            ResultSet rs = ps.executeQuery();
+            DefaultTableModel model = (DefaultTableModel)table.getModel();
+            Object[] row;
+            while(rs.next()){
+            row = new Object[3];
+            row[0] = rs.getString(1);
+            row[1] = rs.getString(2);
+            row[2] = rs.getString(3);
+             
+            
+            model.addRow(row);
+            }
+        } catch (SQLException ex) {
+            //Logger.getLogger(StudentTb.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+        
+            
+         
+    }
+
 
 
     
