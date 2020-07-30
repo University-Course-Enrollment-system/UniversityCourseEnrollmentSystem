@@ -42,5 +42,42 @@ public class LecturerTb {
          
     }
 
+    // make the updatable table
+       public void updateDelTable(char c,String fn,String ln,String em,String lid){
+        fname = fn;
+        lname = ln;
+        email = em;
+        lecid = lid;
+        
+        if(c=='u'){
+            try {
+                ps = con.prepareStatement("UPDATE `lecture` SET  `fname`=?,`lname`=?,`email`=? WHERE `empid`=?");
+                ps.setString(1,fname);
+                ps.setString(2,lname);
+                ps.setString(3,email);
+                ps.setString(4,lecid); 
+                if(ps.executeUpdate()>0){
+                JOptionPane.showMessageDialog(null, "Updated Lecture");  
+                }
+                
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage());
+            }
+        }
+        if(c=='d'){
+            try {
+                ps = con.prepareStatement("DELETE FROM `lecture` WHERE `empid`=?");
+                ps.setString(1,lecid);
+                if(ps.executeUpdate()>0){
+                  JOptionPane.showMessageDialog(null, "Deleted Lecturer");
+                }
+            } catch (SQLException ex) {
+                  JOptionPane.showMessageDialog(null, ex.getMessage());
+            }
+        }
+    }
+
+
+
     
 }
