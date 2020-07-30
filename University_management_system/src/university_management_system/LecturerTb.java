@@ -1,3 +1,5 @@
+package university_management_system;
+
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,6 +10,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import university_management_system.MyConnection;
 
 public class LecturerTb {
     String lecid,email,fname,lname;
