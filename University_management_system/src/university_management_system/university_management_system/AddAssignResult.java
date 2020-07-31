@@ -157,7 +157,15 @@ public class AddAssignResult extends javax.swing.JInternalFrame {
         bindingGroup.bind();
 
         pack();
-    }// </editor-fold>                        
+    }// </editor-fold>         
+
+      private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        //Startpg st = new Startpg();
+        //st.setVisible(true);
+        //st.pack();
+        //st.setLocationRelativeTo(null);
+        this.dispose();
+    }                
 
    
 
