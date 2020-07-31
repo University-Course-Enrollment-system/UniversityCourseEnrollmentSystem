@@ -179,7 +179,26 @@ public class AddAssignResult extends javax.swing.JInternalFrame {
       
         
          
-    }                
+    }      
+
+      private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+          if(txt_avgmark.getText().equals("")){
+          JOptionPane.showMessageDialog(null, "Enter the Average marks of Assignments");
+          }
+          else if(txt_numasign.getText().equals("")){
+          JOptionPane.showMessageDialog(null, "Enter the number of Assignments");
+          }
+          else{
+          String stid = cmb_stid.getSelectedItem().toString();
+          String subid = cmb_subid.getSelectedItem().toString();
+          int numAssign = Integer.parseInt(txt_numasign.getText());
+          int avgmark = Integer.parseInt(txt_avgmark.getText());
+          rt.AddUpdateAssignTb('i', stid, subid, numAssign, avgmark);
+          
+          
+          
+          }
+    }           
 
    
 
