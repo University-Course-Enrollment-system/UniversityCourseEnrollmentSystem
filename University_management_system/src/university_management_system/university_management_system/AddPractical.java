@@ -147,6 +147,10 @@ public class AddPractical extends javax.swing.JFrame {
         
         this.dispose();
     } 
+
+    private void comb_sidItemStateChanged(java.awt.event.ItemEvent evt) {                                          
+        // TODO add your handling code here:
+    } 
     
 
     // Variables declaration - do not modify                     
