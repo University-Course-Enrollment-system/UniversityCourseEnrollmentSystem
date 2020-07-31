@@ -269,6 +269,10 @@ public class AddCourse extends javax.swing.JFrame {
      private void txt_crsidActionPerformed(java.awt.event.ActionEvent evt) {                                          
         // TODO add your handling code here:
     } 
+
+     private void txt_durationActionPerformed(java.awt.event.ActionEvent evt) {                                             
+        // TODO add your handling code here:
+    } 
     
 
     // Variables declaration - do not modify                     
