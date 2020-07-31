@@ -257,6 +257,10 @@ public class AddCourse extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold> 
 
+     private void txt_crsnameActionPerformed(java.awt.event.ActionEvent evt) {                                            
+        // TODO add your handling code here:
+    }
+
     
 
     // Variables declaration - do not modify                     
