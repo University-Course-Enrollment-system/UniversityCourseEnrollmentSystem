@@ -141,6 +141,12 @@ public class AddPractical extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>                        
 
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+         
+        
+        this.dispose();
+    } 
     
 
     // Variables declaration - do not modify                     
