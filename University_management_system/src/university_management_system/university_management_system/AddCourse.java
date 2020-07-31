@@ -317,7 +317,11 @@ public class AddCourse extends javax.swing.JFrame {
          
        
       }
-    }                                        
+    }                  
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        this.dispose();
+    }                       
 
 
 
