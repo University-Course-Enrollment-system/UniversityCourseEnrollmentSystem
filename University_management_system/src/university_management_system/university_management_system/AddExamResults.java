@@ -289,7 +289,19 @@ public class AddExamResults extends javax.swing.JInternalFrame {
        lbl_asignmarks.setText("");
        rt.fillbl(stid, subid, lbl_asignmarks);
        
-    }            
+    }          
+
+    
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+       String stid =cmb_stid.getSelectedItem().toString();
+       String subid =cmb_subid.getSelectedItem().toString(); 
+       int assignmark = Integer.parseInt(lbl_asignmarks.getText());
+       int xmmark = Integer.parseInt(txt_exammark.getText());
+       int ptage = Integer.parseInt(txt_presentage.getText());
+       int finalmark = Integer.parseInt(lbl_finalmark.getText());
+       String fingrade = lbl_grade.getText();
+       rt.AddUpdateExamTb('i', stid,subid,assignmark,xmmark,ptage,finalmark,fingrade);
+    }    
 
                              
 
