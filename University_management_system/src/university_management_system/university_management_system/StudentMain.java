@@ -185,6 +185,54 @@ public class StudentMain extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        jDesktopPane1.removeAll();
+        SelectCourses sc = new SelectCourses();
+        // LoginStudent ls = new LoginStudent();
+        jDesktopPane1.add(sc).setVisible(true);
+        String sid = stindex.getText();
+        String fac = lbl_facname.getText();
+        String semid = sem.getText();
+        System.out.println("St Id is :" + sid);
+        System.out.println("St fac is :" + fac);
+        SelectCourses.lbl_id.setText(sid);
+        SelectCourses.lbl_fac.setText(fac);
+        SelectCourses.lbl_semid.setText(semid);
+        if ("1".equals(SelectCourses.cmb_yr.getSelectedItem().toString())) {
+            if ("S12".equals(semid)) {
+                SelectCourses.cmb_sem.addItem("S12");
+            } else {
+                SelectCourses.cmb_sem.addItem("S11");
+                SelectCourses.cmb_sem.addItem("S12");
+            }
+        }
+
+        //ls.getTextVal();
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        String sid = stindex.getText();
+        jDesktopPane1.removeAll();
+        EditSelectedCrses ec = new EditSelectedCrses();
+        jDesktopPane1.add(ec).setVisible(true);
+        ct.fillCrsDetailTable(EditSelectedCrses.jTable1, sid);
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        String sid = stindex.getText();
+        jDesktopPane1.removeAll();
+        ResultSheet rs = new ResultSheet();
+        jDesktopPane1.add(rs).setVisible(true);
+        ResultSheet.stid.setText(sid);
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
