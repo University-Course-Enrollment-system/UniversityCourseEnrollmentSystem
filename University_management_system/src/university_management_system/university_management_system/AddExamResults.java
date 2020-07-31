@@ -275,7 +275,13 @@ public class AddExamResults extends javax.swing.JInternalFrame {
           lbl_grade.setText("E");
         }
         }
-    }                      
+    }     
+
+     private void cmb_stidActionPerformed(java.awt.event.ActionEvent evt) {                                         
+      String stid =cmb_stid.getSelectedItem().toString();
+      cmb_subid.removeAllItems();
+      fc.fillStrItems(cmb_subid,"SELECT * FROM `stsub` WHERE `studentid` = ?", 2, 1, stid);
+    }                  
 
                              
 
