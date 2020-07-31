@@ -165,6 +165,20 @@ public class AddAssignResult extends javax.swing.JInternalFrame {
         //st.pack();
         //st.setLocationRelativeTo(null);
         this.dispose();
+    } 
+
+
+       private void cmb_stidActionPerformed(java.awt.event.ActionEvent evt) {                                         
+      
+      //fc.fillStrItems(cmb_stid,"SELECT * FROM `student`",1); 
+      String stid =cmb_stid.getSelectedItem().toString();
+      cmb_subid.removeAllItems();
+      fc.fillStrItems(cmb_subid,"SELECT * FROM `stsub` WHERE `studentid` = ?", 2, 1, stid);
+      //cmb_stid.removeAllItems();
+      
+      
+        
+         
     }                
 
    
