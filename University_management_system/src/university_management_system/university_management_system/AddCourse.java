@@ -283,6 +283,44 @@ public class AddCourse extends javax.swing.JFrame {
         // TODO add your handling code here:
     }
 
+    
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+      if(txt_crsid.getText().equals("")){
+      JOptionPane.showMessageDialog(null, "Enter Course Id");}
+      else if(txt_crsname.getText().equals("")){
+      JOptionPane.showMessageDialog(null, "Enter Course name");}
+       else if(txt_credits.getText().equals("")){
+      JOptionPane.showMessageDialog(null, "Enter Number of Credits");}
+       else if(txt_assignment.getText().equals("")){
+      JOptionPane.showMessageDialog(null, "Enter number of Assignments");}
+      else if(txt_duration.getText().equals("")){
+      JOptionPane.showMessageDialog(null, "Enter course duration");}
+       else if(txt_cost.getText().equals("")){
+      JOptionPane.showMessageDialog(null, "Enter course cost");}
+       else if(cmb_location.getSelectedItem().toString().equals("")){
+      JOptionPane.showMessageDialog(null, "Enter location");}
+      else{
+       String crsid = txt_crsid.getText();
+       String crsname = txt_crsname.getText();
+       String type = cmb_type.getSelectedItem().toString();
+       int credits = Integer.parseInt(txt_credits.getText());
+       int duration = Integer.parseInt(txt_duration.getText());
+       int cost = Integer.parseInt(txt_cost.getText());
+       int numassig = Integer.parseInt(txt_assignment.getText());
+       String lecid = combLecId.getSelectedItem().toString();
+       String location = cmb_location.getSelectedItem().toString();
+       String facname = combo_fac.getSelectedItem().toString();
+       String semid = combo_sem.getSelectedItem().toString();
+       ct.AddDelUpdate('i', facname, semid, crsid, crsname, lecid, location,type, credits, numassig, duration, cost);
+       ManageCources.jTable1.setModel(new DefaultTableModel(null,new Object[]{"Faculty", "Sem ID", "Course ID", "Course name","Credits","Assignments","Cost","Lecturer ID","Duration","Location"}));
+       ct.fillCrsTable(ManageCources.jTable1, "");
+         
+       
+      }
+    }                                        
+
+
+
     // Variables declaration - do not modify                     
     private javax.swing.JComboBox cmb_location;
     private javax.swing.JComboBox cmb_type;
