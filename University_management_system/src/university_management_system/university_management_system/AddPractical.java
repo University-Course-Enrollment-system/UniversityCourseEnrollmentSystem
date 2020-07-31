@@ -151,6 +151,16 @@ public class AddPractical extends javax.swing.JFrame {
     private void comb_sidItemStateChanged(java.awt.event.ItemEvent evt) {                                          
         // TODO add your handling code here:
     } 
+
+
+      private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        String labid = comb_labid.getSelectedItem().toString();
+        String subid = comb_sid.getSelectedItem().toString();
+        String insid = comb_insid.getSelectedItem().toString();
+        pt.AddDelUpdate('i', insid, labid, subid);
+        MangePracticals.jTable1.setModel(new DefaultTableModel(null,new Object[]{"Subject ID", "Lab ID", "Instructor ID" }));
+        pt.fillPracTable(MangePracticals.jTable1, "");
+    }  
     
 
     // Variables declaration - do not modify                     
