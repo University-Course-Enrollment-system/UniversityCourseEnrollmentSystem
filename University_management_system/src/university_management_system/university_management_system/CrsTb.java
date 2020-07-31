@@ -130,31 +130,48 @@ public class CrsTb {
             }
         }
     }
-    public void fillSlctCrsTable(JTable table,String facname,String semid){
-        try {
-           ps = con.prepareStatement("SELECT `subid`, `subname`, `credits`, `numassign`, `cost`, `duration` FROM subjects WHERE `faculty`=? AND `semid`= ? AND `type`= ? ");
-           ps.setString(1,facname);
-           ps.setString(2,semid);
-           String tpe = "Optional";
-           ps.setString(3, tpe);
-           ResultSet rs = ps.executeQuery();
-           DefaultTableModel model = (DefaultTableModel)table.getModel();
-           Object[] row;
-           while(rs.next()){
-           row = new Object[6];
-           row[0] = rs.getString(1);
-           row[1] = rs.getString(2);
-           row[2] = rs.getString(3);
-           row[3] = rs.getString(4);
-           row[4] = rs.getString(5);
-           row[5] = rs.getString(6);
-            
-           model.addRow(row);
-           }
-       } catch (SQLException ex) {
-           //Logger.getLogger(StudentTb.class.getName()).log(Level.SEVERE, null, ex);
-           JOptionPane.showMessageDialog(null, ex.getMessage());
-       }
-   }
 
+    public void fillSlctCrsTable(JTable table, String facname, String semid) {
+        try {
+            ps = con.prepareStatement(
+                    "SELECT `subid`, `subname`, `credits`, `numassign`, `cost`, `duration` FROM subjects WHERE `faculty`=? AND `semid`= ? AND `type`= ? ");
+            ps.setString(1, facname);
+            ps.setString(2, semid);
+            String tpe = "Optional";
+            ps.setString(3, tpe);
+            ResultSet rs = ps.executeQuery();
+            DefaultTableModel model = (DefaultTableModel) table.getModel();
+            Object[] row;
+            while (rs.next()) {
+                row = new Object[6];
+                row[0] = rs.getString(1);
+                row[1] = rs.getString(2);
+                row[2] = rs.getString(3);
+                row[3] = rs.getString(4);
+                row[4] = rs.getString(5);
+                row[5] = rs.getString(6);
+
+                model.addRow(row);
+            }
+        } catch (SQLException ex) {
+            // Logger.getLogger(StudentTb.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+    }
+
+    public void insertStCrsTable(String sid, String crsid, String semid) {
+        try {
+
+            ps = con.prepareStatement("INSERT INTO `stsub`(`studentid`, `subjectid`, `semid`) VALUES (?,?,?)");
+            ps.setString(1, sid);
+            ps.setString(2, crsid);
+            ps.setString(3, semid);
+            if (ps.executeUpdate() > 0) {
+                // JOptionPane.showMessageDialog(null,"Course is Added");
+            }
+        } catch (SQLException ex) {
+            // JOptionPane.showMessageDialog(null,ex.getMessage());
+            System.out.println(ex.getMessage());
+        }
+    }
 }
