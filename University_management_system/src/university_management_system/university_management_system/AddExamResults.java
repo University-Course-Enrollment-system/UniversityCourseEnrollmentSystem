@@ -281,7 +281,15 @@ public class AddExamResults extends javax.swing.JInternalFrame {
       String stid =cmb_stid.getSelectedItem().toString();
       cmb_subid.removeAllItems();
       fc.fillStrItems(cmb_subid,"SELECT * FROM `stsub` WHERE `studentid` = ?", 2, 1, stid);
-    }                  
+    }      
+
+     private void cmb_subidActionPerformed(java.awt.event.ActionEvent evt) {                                          
+       String stid =cmb_stid.getSelectedItem().toString();
+       String subid =cmb_subid.getSelectedItem().toString();
+       lbl_asignmarks.setText("");
+       rt.fillbl(stid, subid, lbl_asignmarks);
+       
+    }            
 
                              
 
