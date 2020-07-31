@@ -261,6 +261,10 @@ public class AddCourse extends javax.swing.JFrame {
         // TODO add your handling code here:
     }
 
+    private void txt_creditsActionPerformed(java.awt.event.ActionEvent evt) {                                            
+        // TODO add your handling code here:
+    } 
+
     
 
     // Variables declaration - do not modify                     
