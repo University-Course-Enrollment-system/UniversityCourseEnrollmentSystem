@@ -215,6 +215,68 @@ public class AddExamResults extends javax.swing.JInternalFrame {
         this.dispose();
     } 
 
+     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        if(txt_exammark.getText().equals("")){
+         lbl_grade.setText("F");
+        }
+        if(lbl_asignmarks.getText().equals("")){
+         JOptionPane.showMessageDialog(null,"Assignment mark has been not added");
+        }
+        if(txt_presentage.getText().equals("")){
+         JOptionPane.showMessageDialog(null,"Presentage has been not added");
+        }
+        
+        else{
+        
+        int xmmark = Integer.parseInt(txt_exammark.getText());
+        int ptage = Integer.parseInt(txt_presentage.getText());
+        int assignmark = Integer.parseInt(lbl_asignmarks.getText());
+        int finalmark =(int)((double)xmmark*((double)ptage/100.0)+ (double)assignmark*(1.0-(double)ptage/100.0));
+        System.out.println(finalmark);
+        
+        lbl_finalmark.setText(Integer.toString(finalmark));
+        if(finalmark>=85){
+          lbl_grade.setText("A+");
+        }
+        else if(finalmark>=80){
+          lbl_grade.setText("A");
+        }
+        else if(finalmark>=75){
+          lbl_grade.setText("A-");
+        }
+        else if(finalmark>=70){
+          lbl_grade.setText("B+");
+        }
+        else if(finalmark>=65){
+          lbl_grade.setText("B");
+        }
+        else if(finalmark>=60){
+          lbl_grade.setText("B-");
+        }
+        else if(finalmark>=55){
+          lbl_grade.setText("C+");
+        }
+        else if(finalmark>=50){
+          lbl_grade.setText("C");
+        }
+        else if(finalmark>=45){
+          lbl_grade.setText("C-");
+        }
+        else if(finalmark>=40){
+          lbl_grade.setText("D+");
+        }
+        else if(finalmark>=50){
+          lbl_grade.setText("D");
+        }
+        else if(finalmark>=45){
+          lbl_grade.setText("D-");
+        }
+        else{
+          lbl_grade.setText("E");
+        }
+        }
+    }                      
+
                              
 
 
