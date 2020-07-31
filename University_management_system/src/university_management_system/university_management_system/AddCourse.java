@@ -275,6 +275,10 @@ public class AddCourse extends javax.swing.JFrame {
     } 
     
 
+    private void txt_costActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        // TODO add your handling code here:
+    }  
+
     // Variables declaration - do not modify                     
     private javax.swing.JComboBox cmb_location;
     private javax.swing.JComboBox cmb_type;
