@@ -233,6 +233,14 @@ public class LoginInstructor extends javax.swing.JFrame {
         }
     } 
 
+      private void signbtnActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        SignupUser su = new SignupUser();
+        su.setVisible(true);
+        //st.pack();
+        //st.setLocationRelativeTo(null);
+        this.dispose();
+    } 
+
     // Variables declaration - do not modify                     
     private javax.swing.JButton cancelbtn;
     private javax.swing.JLabel jLabel1;
