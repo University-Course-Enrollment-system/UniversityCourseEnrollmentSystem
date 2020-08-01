@@ -107,7 +107,13 @@ public class LabAllocation extends javax.swing.JInternalFrame {
 
      private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {                                     
 
-    }                
+    }       
+
+
+    
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        this.dispose();
+    }           
   
     // Variables declaration - do not modify                     
     private javax.swing.JButton jButton1;
