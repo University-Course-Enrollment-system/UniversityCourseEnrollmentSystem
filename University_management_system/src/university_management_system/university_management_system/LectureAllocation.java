@@ -105,6 +105,10 @@ public class LectureAllocation extends javax.swing.JInternalFrame {
     }// </editor-fold>                        
     
 
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {                                     
+
+    }
+
     // Variables declaration - do not modify                     
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel6;
