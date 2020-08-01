@@ -94,6 +94,10 @@ public class EditSelectedCrses extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>                     
 
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        this.dispose();
+    }  
    
 
 
