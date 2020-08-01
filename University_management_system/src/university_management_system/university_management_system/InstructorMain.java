@@ -152,6 +152,10 @@ public class InstructorMain extends javax.swing.JFrame {
         pack();
     }// </editor-fold>                        
 
+
+     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        this.dispose();
+    }
     
     
     
