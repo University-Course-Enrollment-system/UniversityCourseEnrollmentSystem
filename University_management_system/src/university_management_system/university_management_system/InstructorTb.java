@@ -51,5 +51,40 @@ public class InstructorTb {
          
     }
 
+
+     public void updateDelTable(char c,String fn,String ln,String em,String lid){
+        fname = fn;
+        lname = ln;
+        email = em;
+        insid = lid;
+        
+        if(c=='u'){
+            try {
+                ps = con.prepareStatement("UPDATE `instructor` SET  `fname`=?,`lname`=?,`email`=? WHERE `insid`=?");
+                ps.setString(1,fname);
+                ps.setString(2,lname);
+                ps.setString(3,email);
+                ps.setString(4,insid); 
+                if(ps.executeUpdate()>0){
+                JOptionPane.showMessageDialog(null, "Updated Instructor");  
+                }
+                
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage());
+            }
+        }
+        if(c=='d'){
+            try {
+                ps = con.prepareStatement("DELETE FROM `instructor` WHERE `insid`=?");
+                ps.setString(1,insid);
+                if(ps.executeUpdate()>0){
+                  JOptionPane.showMessageDialog(null, "Deleted Instructor");
+                }
+            } catch (SQLException ex) {
+                  JOptionPane.showMessageDialog(null, ex.getMessage());
+            }
+        }
+    }
+
     
 }
