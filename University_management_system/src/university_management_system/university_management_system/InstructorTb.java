@@ -86,5 +86,31 @@ public class InstructorTb {
         }
     }
 
+
+       public void fillLabAllocateTable(JTable table,String Val){
+        try {
+            ps = con.prepareStatement("SELECT subjects.`subid` , subjects.`subname` , labmanage.`labid` FROM  `subjects` ,  `labmanage` WHERE subjects.`subid`=labmanage.`subid` AND labmanage.`instrucid` = ?");
+            ps.setString(1,Val);
+  
+            ResultSet rs = ps.executeQuery();
+            DefaultTableModel model = (DefaultTableModel)table.getModel();
+            Object[] row;
+            while(rs.next()){
+            row = new Object[3];
+            row[0] = rs.getString(1);
+            row[1] = rs.getString(2);
+            row[2] = rs.getString(3);
+             
+            
+            model.addRow(row);
+            }
+        } catch (SQLException ex) {
+            //Logger.getLogger(StudentTb.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+        
+            
+         
+    }
     
 }
