@@ -49,5 +49,27 @@ public class StudentTb {
         }
     
     }
+    public void setStVal(String id,String pass ){
+        try {
+                ps = con.prepareStatement("SELECT * FROM  `student` WHERE stid =? AND passwd =?");
+                ps.setString(1,id);
+                ps.setString(2,pass);
+                ResultSet rs = ps.executeQuery();
+                
+                if(rs.next()){
+                 
+                this.stid = rs.getString(1);
+                this.fname = rs.getString(2);
+                this.lname = rs.getString(3);
+                this.semid = rs.getString(11);
+                this.facname = rs.getString(9);
+                
+                }
+            } catch (SQLException ex) {
+                //Logger.getLogger(LoginAdmin.class.getName()).log(Level.SEVERE, null, ex);
+                //System.out.println(ex.getMessage());
+                JOptionPane.showMessageDialog(null,ex.getMessage());
+            }
+    }
 
 }
