@@ -157,7 +157,12 @@ public class InstructorMain extends javax.swing.JFrame {
         this.dispose();
     }
     
-    
+     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        jDesktopPane3.removeAll();
+        AddAssignResult sc = new AddAssignResult();
+        jDesktopPane3.add(sc).setVisible(true); 
+
+    }
     
     // Variables declaration - do not modify                     
     private javax.swing.JButton jButton10;
