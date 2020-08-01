@@ -163,6 +163,13 @@ public class InstructorMain extends javax.swing.JFrame {
         jDesktopPane3.add(sc).setVisible(true); 
 
     }
+
+
+     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        jDesktopPane3.removeAll();
+        ManageStAssign sc = new ManageStAssign();
+        jDesktopPane3.add(sc).setVisible(true); 
+    }
     
     // Variables declaration - do not modify                     
     private javax.swing.JButton jButton10;
