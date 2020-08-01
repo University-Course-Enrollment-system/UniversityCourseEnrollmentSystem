@@ -170,6 +170,16 @@ public class InstructorMain extends javax.swing.JFrame {
         ManageStAssign sc = new ManageStAssign();
         jDesktopPane3.add(sc).setVisible(true); 
     }
+
+
+     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        jDesktopPane3.removeAll();
+        LabAllocation sc = new LabAllocation();
+        jDesktopPane3.add(sc).setVisible(true); 
+        String instrid = lbl_insid.getText();
+        it.fillLabAllocateTable(LabAllocation.jTable1, instrid);
+        
+    } 
     
     // Variables declaration - do not modify                     
     private javax.swing.JButton jButton10;
