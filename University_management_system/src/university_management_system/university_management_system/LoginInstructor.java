@@ -181,6 +181,14 @@ public class LoginInstructor extends javax.swing.JFrame {
     }// </editor-fold>                        
 
 
+  private void cancelbtnActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        //Startpg st = new Startpg();
+        //st.setVisible(true);
+        //st.pack();
+        //st.setLocationRelativeTo(null);
+        this.dispose();
+    }
+
     
 
     // Variables declaration - do not modify                     
