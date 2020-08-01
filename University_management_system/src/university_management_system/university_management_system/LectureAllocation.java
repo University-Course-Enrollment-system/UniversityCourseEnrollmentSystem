@@ -109,6 +109,10 @@ public class LectureAllocation extends javax.swing.JInternalFrame {
 
     }
 
+      private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        this.dispose();
+    } 
+
     // Variables declaration - do not modify                     
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel6;
