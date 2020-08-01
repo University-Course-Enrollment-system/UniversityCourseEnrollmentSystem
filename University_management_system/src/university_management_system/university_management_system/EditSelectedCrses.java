@@ -99,6 +99,9 @@ public class EditSelectedCrses extends javax.swing.JInternalFrame {
         this.dispose();
     }  
    
+     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {                                     
+
+    } 
 
 
     // Variables declaration - do not modify                     
