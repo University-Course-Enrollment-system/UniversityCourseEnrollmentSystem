@@ -189,7 +189,49 @@ public class LoginInstructor extends javax.swing.JFrame {
         this.dispose();
     }
 
-    
+     private void loginbtnActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        lblU.setVisible(false);
+        lblP.setVisible(false);
+        if(tfield1.getText().equals("")){
+            lblU.setVisible(true);
+        }
+        if(String.valueOf(pfield1.getPassword()).equals("")){
+            lblP.setVisible(true);
+        }
+        else{
+
+            try {
+                ps = con.prepareStatement("SELECT * FROM `instructor` WHERE insid =? AND passwd =?");
+                ps.setString(1, tfield1.getText());
+                ps.setString(2, String.valueOf(pfield1.getPassword()));
+                ResultSet rs = ps.executeQuery();
+                if(rs.next()){
+                    InstructorMain lm = new InstructorMain();
+                    lm.setVisible(true);
+                    lm.pack();
+                    
+                    lm.setLocationRelativeTo(null);
+                    lm.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                    //lm.lecname.setText("WELCOME <"+tfield1.getText()+">");
+                    String lecid=rs.getString(1);
+                    String fname=rs.getString(2);
+                    String lname=rs.getString(3);
+                     
+                    InstructorMain.test.setText("USER :"+fname + " " + lname);
+                    InstructorMain.lbl_insid.setText(lecid);
+                    
+                    this.dispose();}
+                else{
+                    JOptionPane.showMessageDialog(null,"Username or Password is incorrect");
+                    //System.out.print("NO");
+                }
+            } catch (SQLException ex) {
+                //Logger.getLogger(LoginAdmin.class.getName()).log(Level.SEVERE, null, ex);
+                 JOptionPane.showMessageDialog(null,ex.getMessage());
+            }
+
+        }
+    } 
 
     // Variables declaration - do not modify                     
     private javax.swing.JButton cancelbtn;
