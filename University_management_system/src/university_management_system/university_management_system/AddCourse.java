@@ -18,7 +18,7 @@ public class AddCourse extends javax.swing.JFrame {
      * Creates new form AddCourse
      */
     CrsTb ct =new CrsTb();
-    fillCombo fc = new fillCombo();
+    fillcombo fc = new fillCombo();
     public AddCourse() {
         initComponents();
         fc.fillcombo1();
