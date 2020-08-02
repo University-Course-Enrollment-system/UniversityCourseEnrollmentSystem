@@ -204,6 +204,60 @@ public class LoginStudent extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void loginbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginbtnActionPerformed
+        lblU.setVisible(false);
+        lblP.setVisible(false);
+        if(tfield1.getText().equals("")){
+        lblU.setVisible(true);
+        }
+        if(String.valueOf(pfield1.getPassword()).equals("")){
+        lblP.setVisible(true);
+        }
+        else{
+            
+            try {
+                ps = con.prepareStatement("SELECT * FROM  `student` WHERE stid =? AND passwd =?");
+                ps.setString(1, tfield1.getText());
+                ps.setString(2, String.valueOf(pfield1.getPassword()));
+                ResultSet rs = ps.executeQuery();
+                
+                if(rs.next()){
+                StudentMain sm = new StudentMain();
+                sm.setVisible(true);
+                sm.pack();
+                sm.setLocationRelativeTo(null);
+                sm.setExtendedState(JFrame.MAXIMIZED_BOTH);
+                String stid = rs.getString(1);
+                String fname = rs.getString(2);
+                String lname = rs.getString(3);
+                String semid = rs.getString(11);
+                String facname = rs.getString(9);
+                sm.lbl_wellcome.setText("WELCOME to School Of "+facname);
+                StudentMain.test.setText("USER : "+fname+" "+lname);
+                StudentMain.stindex.setText(stid);
+                StudentMain.sem.setText(semid);
+                StudentMain.lbl_facname.setText(facname);
+                //
+//                if("1".equals(SelectCourses.cmb_yr.getSelectedItem().toString())){
+//                if("S12".equals(semid)){
+//                    SelectCourses.cmb_sem.addItem("S12");
+//                }}
+                this.dispose();}
+                else{
+                JOptionPane.showMessageDialog(null,"Username or Password is incorrect");
+                //System.out.print("NO");
+                }
+            } catch (SQLException ex) {
+                //Logger.getLogger(LoginAdmin.class.getName()).log(Level.SEVERE, null, ex);
+                //System.out.println(ex.getMessage());
+                JOptionPane.showMessageDialog(null,ex.getMessage());
+            }
+                
+             
+           
+        }
+    }//GEN-LAST:event_loginbtnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelbtn;
