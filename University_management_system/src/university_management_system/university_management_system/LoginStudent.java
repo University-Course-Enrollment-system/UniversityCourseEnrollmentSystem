@@ -258,6 +258,15 @@ public class LoginStudent extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_loginbtnActionPerformed
 
+    private void signbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signbtnActionPerformed
+        //SignupStudent ss = new SignupStudent();
+         //ss.setVisible(true);
+        //ss.pack();
+        //ss.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_signbtnActionPerformed
+
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelbtn;
