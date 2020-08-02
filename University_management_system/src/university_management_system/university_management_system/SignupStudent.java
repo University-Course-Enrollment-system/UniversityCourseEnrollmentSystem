@@ -556,6 +556,114 @@ public class SignupStudent extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        lblEmail.setVisible(false);
+        lblPas.setVisible(false);
+        lblSID.setVisible(false);
+        lblfn.setVisible(false);
+        lbldob.setVisible(false);
+        lblz.setVisible(false);
+        lblq.setVisible(false);
+        lblen.setVisible(false);
+        if(txt_studentid.getText().equals("")){
+            lblSID.setVisible(true);
+        }
+        else if(txt_email.getText().equals("")){
+            lblEmail.setVisible(true);
+        }
+         else if(txt_firstname.getText().equals("")){
+            lblfn.setVisible(true);
+        }
+           
+          else if(chooser_dob.getDate()==null){
+            lbldob.setVisible(true);
+        }
+          else if(chooser_enroll.getDate()==null){
+            lblen.setVisible(true);
+        }
+           
+        else if(!String.valueOf(password.getPassword()).equals(String.valueOf(confirmpassword.getPassword()))){
+            lblPas.setVisible(true);
+        }
+        //if(String.valueOf(jPasswordField1.getPassword()) == String.valueOf(jPasswordField2.getPassword())){
+            //lblPas.setVisible(false);
+      //  }
+        else if(String.valueOf(password.getPassword()).equals("")){
+            lblPas.setVisible(true);
+        }
+        else if(chooser_dob.getDate().compareTo(new Date())>0){
+            JOptionPane.showMessageDialog(null, "No Student from the future are allowed.");
+        }
+        else{
+        String sid = txt_studentid.getText();
+        String fname = txt_firstname.getText();
+        String lname = txt_surname.getText();
+        String email = txt_email.getText();
+        String zscore = txt_zscore.getText();
+        String qulify = txt_qulification.getText();
+        String passwd = String.valueOf(password.getPassword());
+        SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd");
+        String bdate = dateformat.format(chooser_dob.getDate());
+        String enroldate = dateformat.format(chooser_enroll.getDate());
+        String fac = (String)combo_fac.getSelectedItem();
+        String sem = (String)combo_sem.getSelectedItem();
+        
+        
+        String query = "INSERT INTO `student`(`stid`, `fname`, `lname`, `passwd`, `email`, `dob`, `zscore`, `qtype`, `facname`, `enroldate`, `semid`) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+        try {
+            ps = con.prepareStatement(query);
+            ps.setString(1, sid);
+            ps.setString(2, fname);
+            ps.setString(3, lname);
+            ps.setString(4, passwd);
+            ps.setString(5, email);
+            ps.setString(6, bdate);
+            ps.setString(7, zscore);
+            ps.setString(8, qulify);
+            ps.setString(9, fac);
+            ps.setString(10, enroldate);
+            ps.setString(11, sem);
+         if(ps.executeUpdate()>0){
+         JOptionPane.showMessageDialog(null, "New Student Add");
+         ManageStudent.jTable1.setModel(new DefaultTableModel(null,new Object[]{"Student ID", "First name", "Surname", "Date of Birth", "Email", "Faculty", "Enroll Date", "Semester ID", "Z score", "Qulification Type"}));
+        stt.fillstjtable(ManageStudent.jTable1,"");
+         
+         }else{
+         JOptionPane.showMessageDialog(null, "Not Complete or Insert wrong details");
+         }
+            
+        } catch (SQLException ex) {
+            //Logger.getLogger(SignupStudent.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+           try {
+                ps = con.prepareStatement("SELECT * FROM  `student` WHERE stid =? AND passwd =?");
+                ps.setString(1, txt_studentid.getText());
+                ps.setString(2, String.valueOf(password.getPassword()));
+                ResultSet rs = ps.executeQuery();
+                
+                if(rs.next()){
+                StudentMain sm = new StudentMain();
+                sm.setVisible(true);
+                sm.pack();
+                sm.setLocationRelativeTo(null);
+                String fname = rs.getString(2);
+                String lname = rs.getString(3);
+                sm.lbl_wellcome.setText("WELCOME <"+fname+" "+lname+">");
+                this.dispose();}
+                else{
+                JOptionPane.showMessageDialog(null,"Username or Password is incorrect");
+                //System.out.print("NO");
+                }
+            } catch (SQLException ex) {
+                //Logger.getLogger(LoginAdmin.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(null,ex.getMessage());
+            }
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     private void combo_semActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_semActionPerformed
         // TODO add your handling code here:
