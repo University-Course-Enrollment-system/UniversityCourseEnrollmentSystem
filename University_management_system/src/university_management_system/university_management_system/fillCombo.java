@@ -15,5 +15,17 @@ public class fillCombo {
    public fillCombo(){
    con = MyConnection.getconnection();
    }
-   
+   public void fillcombo1(){
+       try {
+           ps = con.prepareStatement("SELECT * FROM `lecture`");
+           rs = ps.executeQuery();
+           while(rs.next()){
+           String id = rs.getString(1);
+           AddCourse.combLecId.addItem(id);
+           
+           }
+       } catch (SQLException ex) {
+           JOptionPane.showMessageDialog(null, ex.getMessage());
+       }
+   }
 }
