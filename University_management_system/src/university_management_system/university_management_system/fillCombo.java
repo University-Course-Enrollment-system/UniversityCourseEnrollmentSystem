@@ -56,4 +56,19 @@ public class fillCombo {
             JOptionPane.showMessageDialog(null, ex.getMessage());
         }
     }
+
+    public void fillStrItems(JComboBox combo, String q, int Index, int num, String val) {
+        try {
+            ps = con.prepareStatement(q);
+            ps.setString(num, val);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                String id = rs.getString(Index);
+                combo.addItem(id);
+
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+    }
 }
